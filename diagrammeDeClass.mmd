@@ -1,0 +1,61 @@
+classDiagram
+    class ApplicationCryptanalyse {
+        -chiffreur : Chiffreur
+        -dechiffreur : Dechiffreur
+        -analyseurFrequence : AnalyseurFrequence
+        -analyseurLexical : AnalyseurLexical
+        -rapportGenerateur : RapportGenerateur
+        +lancerDemo(phrase, cle)
+        +decoderTexteMystere(texte) str
+    }
+
+    class CesarCipher {
+        <<abstract>>
+        #decalerLettre(lettre, decalage) char
+    }
+
+    class Chiffreur {
+        +chiffrer(texte, cle) str
+    }
+
+    class Dechiffreur {
+        +dechiffrer(texte, cle) str
+    }
+
+    class AnalyseurFrequence {
+        -frequencesStandard : dict
+        +compterLettres(texte) dict
+        +calculerFrequences(compteur) dict
+        +trouverCleProbable(texte) int
+        +decoderTexteMystere(texte) tuple
+    }
+
+    class AnalyseurLexical {
+        -SUFFIXES_VERBES : tuple
+        +extraireMots(texte) list
+        +extraireVerbesProbables(texte) list
+        +comparerDictionnaire(mots) list
+    }
+
+    class Dictionnaire {
+        -motsConnus : set
+        +chargerDepuisFichier(chemin)
+        +contient(mot) bool
+    }
+
+    class RapportGenerateur {
+        +genererRapport(original, clair, cle, verbes) str
+        +exporterTxt(rapport, chemin)
+    }
+
+    CesarCipher <|-- Chiffreur
+    CesarCipher <|-- Dechiffreur
+
+    ApplicationCryptanalyse *-- Chiffreur
+    ApplicationCryptanalyse *-- Dechiffreur
+    ApplicationCryptanalyse *-- AnalyseurFrequence
+    ApplicationCryptanalyse *-- AnalyseurLexical
+    ApplicationCryptanalyse *-- RapportGenerateur
+
+    AnalyseurFrequence --> Dechiffreur : utilise
+    AnalyseurLexical --> Dictionnaire : utilise
