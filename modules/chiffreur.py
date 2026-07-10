@@ -12,9 +12,23 @@ def chiffrement(texte, cle):
     letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     new_list_letters = []
     new_letters = []
+    k=0
+    cle = input("Entrez la clé de chiffrement (un entier) : ")
+    cle = int(cle)
+    while cle == 0:
+        cle = input("Entrez la clé de chiffrement (un entier) : ")
+        cle = int(cle)
+        k+= 1
+    
+    j=0
+    while cle < 0:
+        cle = 26 + cle
+        j += 1
     cle = cle % 26
     for i in range(len(texte)):
         new_letters.append(texte[i])
+        
+            
     i=cle
     while i < len(letters):
         new_list_letters.append(letters[i])
@@ -29,8 +43,10 @@ def chiffrement(texte, cle):
             index = letters.index(new_letters[i])
             new_letters[i] = new_list_letters[index]
         i+=1
-    return new_letters
+    for i in range(len(new_letters)):
+        texte_chiffre += new_letters[i]
+    return texte_chiffre
 
 chiffrement.cle = 3
-texte = "bonjour"
+texte = "bonjour mongol"
 print(chiffrement(texte, chiffrement.cle))
