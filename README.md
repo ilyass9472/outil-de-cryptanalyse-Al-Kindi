@@ -40,7 +40,3 @@ Le tout en ligne de commande (pour l’instant), avec un code clair et commenté
 
 ---
 
-## 📦 Installation
-
-git clone https://github.com/ton-compte/dans-les-pas-dalkindi.git
-cd dans-les-pas-dalkindi
