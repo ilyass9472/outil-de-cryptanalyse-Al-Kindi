@@ -42,11 +42,16 @@ def chiffrement(texte, cle):
         if new_letters[i] in letters:
             index = letters.index(new_letters[i])
             new_letters[i] = new_list_letters[index]
+        if new_letters[i] == "/n":
+            new_letters[i] = " "
+
+
+            
         i+=1
     for i in range(len(new_letters)):
         texte_chiffre += new_letters[i]
     return texte_chiffre
 
 chiffrement.cle = 3
-texte = "bonjour mongol"
+texte = input("Entrez le texte à chiffrer : ")
 print(chiffrement(texte, chiffrement.cle))
