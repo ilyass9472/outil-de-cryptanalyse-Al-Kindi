@@ -20,11 +20,11 @@ class dechiffreur:
 
         cle = self.cle % 26
 
-        # Construction du texte
+        
         for i in range(len(self.texte_chiffre)):
             new_letters.append(self.texte_chiffre[i])
 
-        # Alphabet minuscule et majuscule
+        
         i = cle
         while i < len(letters):
             new_list_letters.append(letters[i])
@@ -38,7 +38,7 @@ class dechiffreur:
 
             i += 1
 
-        # Nombres
+        
         i = cle % 10
         while i < len(numbers):
             new_list_numbers.append(numbers[i])
@@ -51,7 +51,8 @@ class dechiffreur:
 
             i += 1
 
-        # Déchiffrement
+        
+
         i = 0
         while i < len(new_letters):
 
