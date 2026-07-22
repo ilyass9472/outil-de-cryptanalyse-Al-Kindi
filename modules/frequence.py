@@ -15,11 +15,13 @@ def calculer_frequence(texte):
     cursor.execute("UPDATE lettres_lower SET frequence = 0")
     cursor.execute("UPDATE lettres_upper SET frequence = 0")
     cursor.execute("UPDATE nombres SET frequence = 0")
+    cursor.execute("UPDATE symboles SET frequence = 0")
     print("Longueur du texte :", len(texte))
     # only caractères 
     caracteres = [
-        c for c in texte
-        if c.islower() or c.isupper() or c.isdigit()
+    c for c in texte
+    if c.islower() or c.isupper() or c.isdigit()
+    or (not c.isalnum() and not c.isspace())
     ]
     cursor.execute("""
     SELECT current_database(),
@@ -80,6 +82,16 @@ def calculer_frequence(texte):
                 UPDATE nombres
                 SET frequence = %s
                 WHERE chiffre = %s
+                """,
+                (frequence, caractere)
+            )
+        elif not caractere.isalnum() and not caractere.isspace():
+
+            cursor.execute(
+                """
+                UPDATE symboles
+                SET frequence = %s
+                WHERE symbole = %s
                 """,
                 (frequence, caractere)
             )

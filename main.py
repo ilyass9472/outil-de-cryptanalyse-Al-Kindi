@@ -3,7 +3,6 @@ from modules.dechiffreur import dechiffreur
 from utils.input import Input
 from utils.cle import cle
 from data.config import get_connection
-from modules.frequence import calculer_frequence
 try:
     conn = get_connection()
     print("Connexion réussie !")
@@ -33,11 +32,3 @@ if switcher == "C":
 elif switcher == "D":
     dechiffreur_obj = dechiffreur(text, key)
     print(dechiffreur_obj.dechiffrement())
-elif switcher == "D":
-
-    dechiffreur_obj = dechiffreur(text, key)
-    texte_dechiffre = dechiffreur_obj.dechiffrement()
-
-    print(texte_dechiffre)
-
-    calculer_frequence(texte_dechiffre)
