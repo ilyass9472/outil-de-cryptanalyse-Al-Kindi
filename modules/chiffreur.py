@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-=======
-class chiffreur:
-    def __init__(self, texte, cle):
-        self.texte = texte
-        self.cle = cle
-
-mychiffreur = chiffreur("Bonjour", "haha")
-
->>>>>>> 7c6ecff0e835acf0bd90075f324aa7c34b50af14
-
 def chiffrement(texte, cle):
 
     texte_chiffre = ""
