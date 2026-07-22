@@ -1,12 +1,4 @@
 
-class chiffreur:
-    def __init__(self, texte, cle):
-        self.texte = texte
-        self.cle = cle
-mychiffreur = chiffreur("Bonjour", "haha")
-
-
-
 def chiffrement(texte, cle):
     
     texte_chiffre = ""
