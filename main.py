@@ -1,43 +1,51 @@
+banner = '''
+\033[38;2;213;155;125m+---------------------------------------------------------------------------------+
+\033[38;2;213;155;125m|     ▄▄     ▄▄▄▄                ▄▄   ▄▄▄     ██                     ▄▄     ██    |
+\033[38;2;213;155;125m|    ████    ▀▀██                ██  ██▀      ▀▀                     ██     ▀▀    |
+\033[38;2;213;155;125m|    ████      ██                ██▄██      ████     ██▄████▄   ▄███▄██   ████    |
+\033[38;2;213;155;125m|   ██  ██     ██                █████        ██     ██▀   ██  ██▀  ▀██     ██    |
+\033[38;2;213;155;125m|   ██████     ██                ██  ██▄      ██     ██    ██  ██    ██     ██    |
+\033[38;2;213;155;125m|  ▄██  ██▄    ██▄▄▄             ██   ██▄  ▄▄▄██▄▄▄  ██    ██  ▀██▄▄███  ▄▄▄██▄▄▄ |
+\033[38;2;213;155;125m|  ▀▀    ▀▀     ▀▀▀▀             ▀▀    ▀▀  ▀▀▀▀▀▀▀▀  ▀▀    ▀▀    ▀▀▀ ▀▀  ▀▀▀▀▀▀▀▀ |
+\033[38;2;213;155;125m+---------------------------------------------------------------------------------+\033[0m
+ choisis l'option que tu veux faire 
+ [1]: chiffrage cesar avec cle
+ [2]: dechiffrage cesar avec cle
+ [3]: dechiffrage cesar sans cle
+ [4]: option 4
+ [5]: option 5 
+ '''
+
 from modules.chiffreur import chiffrement
-from modules.dechiffreur import dechiffreur
+from modules.dechiffreur import dechiffrement
 from utils.input import Input
 from utils.cle import cle
-from data.config import get_connection
-from modules.frequence import calculer_frequence
-try:
-    conn = get_connection()
-    print("Connexion réussie !")
 
-    cursor = conn.cursor()
-    cursor.execute("SELECT version();")
+print(banner)
+choix = input("choisis une option: ")
 
-    print(cursor.fetchone())
+match choix:
+    case "1":
+        print("[1]: chiffrage cesar avec cle")
 
-    cursor.close()
-    conn.close()
+        reader = Input("")
+        text = reader.get_text()
+        key = cle()
+        
+        print(chiffrement(text, key))
+    case "2":
+        print("[2]: dechiffrage cesar avec cle")
 
-except Exception as e:
-    print("Erreur :", e)
-reader = Input("")
-text = reader.get_text()
-key = cle()
+        reader = Input("")
+        text = reader.get_text()
+        key = -1*int(cle())
 
-switcher = ""
-
-while switcher not in ["C", "D"]:
-    switcher = input("Voulez-vous chiffrer ou déchiffrer le texte ? (C/D) : ").upper()
-
-if switcher == "C":
-    print(chiffrement(text, key))
-
-elif switcher == "D":
-    dechiffreur_obj = dechiffreur(text, key)
-    print(dechiffreur_obj.dechiffrement())
-elif switcher == "D":
-
-    dechiffreur_obj = dechiffreur(text, key)
-    texte_dechiffre = dechiffreur_obj.dechiffrement()
-
-    print(texte_dechiffre)
-
-    calculer_frequence(texte_dechiffre)
+        print(dechiffrement(text, key))
+    case "3":
+        print("dechiffrage cesar sans cle")
+    case "4":
+        print("Option 4")
+    case "5":
+        print("Option 5")
+    case _:
+        print("Option invalide")

@@ -1,0 +1,55 @@
+[33mcommit 9ca08451b65abd9ebcf6860e287f0355dabba919[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/develop[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Thu Jul 9 14:52:08 2026 +0100
+
+    hello world!
+
+[33mcommit 8afcbd2f10c6d20fc5d1a4426ab4f3dfd57ea72c[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Thu Jul 9 14:47:19 2026 +0100
+
+    update architectur
+
+[33mcommit 36996334863057a92fe09aa83cf3107bf782ae68[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Thu Jul 9 14:21:53 2026 +0100
+
+    architecture du projet
+
+[33mcommit b3e9ca250bb71c99fa1ea3d053c385401cfa51c3[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Thu Jul 9 11:29:18 2026 +0100
+
+    diagrame de class fix
+
+[33mcommit b5b38eaef2cb0a4418b2b89c52abe08c6d15a32d[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Thu Jul 9 14:01:58 2026 +0100
+
+    fix error diagramme de class
+
+[33mcommit 269951db102582018f94e225b057855a7ff26924[m[33m ([m[1;32mfeature/TextFiltering[m[33m)[m
+Author: imoxmk <ajendid.lahcen@gemail.com>
+Date:   Tue Jul 7 13:04:37 2026 +0100
+
+    test 1
+
+[33mcommit 7f83012e408f07c1a9353ad73b6d9fc7dcea0afa[m
+Author: Ilyass <ilyass9472@gmail.com>
+Date:   Tue Jul 7 12:57:16 2026 +0100
+
+    test
+
+[33mcommit efa80b4d3018854c2c984c7073d48a92b5b63a29[m
+Author: ilyass9472 <ilyass9472@gmail.com>
+Date:   Tue Jul 7 12:13:36 2026 +0100
+
+    Revise README for project clarity and details
+    
+    Updated the README to provide a clearer project description, features, technologies used, and installation instructions.
+
+[33mcommit 52b33a9f8cffbb68028fa1db047a0a44db622aba[m
+Author: ilyass9472 <ilyass9472@gmail.com>
+Date:   Tue Jul 7 12:11:52 2026 +0100
+
+    Initial commit
