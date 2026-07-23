@@ -26,9 +26,6 @@ choix = input("choisis une option: ")
 
 match choix:
     case "1":
-        from modules.chiffreur import chiffrement
-        from utils.input import Input
-        from utils.cle import cle
         print("[1]: chiffrage cesar avec cle")
 
         reader = Input("")
@@ -37,9 +34,6 @@ match choix:
         
         print(chiffrement(text, key))
     case "2":
-        from modules.dechiffreur import dechiffrement
-        from utils.input import Input
-        from utils.cle import cle
         print("[2]: dechiffrage cesar avec cle")
 
         reader = Input("")
