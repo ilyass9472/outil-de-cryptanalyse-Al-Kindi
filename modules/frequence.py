@@ -12,10 +12,10 @@ def calculer_frequence(texte):
     cursor = conn.cursor()
 
   
-    cursor.execute("UPDATE lettres_lower SET frequence = 0")
-    cursor.execute("UPDATE lettres_upper SET frequence = 0")
-    cursor.execute("UPDATE nombres SET frequence = 0")
-    cursor.execute("UPDATE symboles SET frequence = 0")
+    # cursor.execute("UPDATE lettres_lower SET frequence = 0")
+    # cursor.execute("UPDATE lettres_upper SET frequence = 0")
+    # cursor.execute("UPDATE nombres SET frequence = 0")
+    # cursor.execute("UPDATE symboles SET frequence = 0")
     print("Longueur du texte :", len(texte))
     # only caractères 
     caracteres = [

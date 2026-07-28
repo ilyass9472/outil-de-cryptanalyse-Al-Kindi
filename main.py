@@ -15,12 +15,13 @@ banner = '''
  [4]: option 4
  [5]: option 5 
  '''
-
+from modules.frequence import calculer_frequence
+from modules.analyseur_frequence import AnalyseurFrequence
 from modules.chiffreur import chiffrement
 from modules.dechiffreur import dechiffrement
 from utils.input import Input
 from utils.cle import cle
-
+from modules.analyseur_lexical import AnalyseurLexical
 print(banner)
 choix = input("choisis une option: ")
 
@@ -43,6 +44,21 @@ match choix:
         print(dechiffrement(text, key))
     case "3":
         print("dechiffrage cesar sans cle")
+        
+        with open("data/texte_chiffre.txt", "r", encoding="utf-8") as f:
+
+            texte = f.read()
+
+        analyseur = AnalyseurFrequence(texte)
+        analyseur.calculer_frequence()
+        analyseur_lexical = AnalyseurLexical()
+        print("Training dechifrage frequence terminé.")
+        resultat = analyseur_lexical.compare_frequence(texte)
+
+        print("\n==============================")
+        print("Texte déchiffré (approximation)")
+        print("==============================")
+        print(resultat)        
     case "4":
         print("Option 4")
     case "5":
