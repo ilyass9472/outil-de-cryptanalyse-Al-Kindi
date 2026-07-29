@@ -6,7 +6,7 @@ class Input :
             lignes = []
             while True:
                 line = input()
-                if line == "":
+                if line == "xa9la7":
                         break
                 lignes.append(line)
             self.text = "\n".join(lignes)

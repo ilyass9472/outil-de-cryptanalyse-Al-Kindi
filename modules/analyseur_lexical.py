@@ -24,6 +24,7 @@ class AnalyseurLexical:
             if c.islower()
             or c.isupper()
             or c.isdigit()
+            or c == " "
             or (not c.isalnum() and not c.isspace())
         ]
 
@@ -32,6 +33,19 @@ class AnalyseurLexical:
             return
 
         compteur = Counter(caracteres)
+
+        # =============================
+        # DEBUG
+        # =============================
+
+        print("\n========== DEBUG ==========")
+        print("Premier 100 caractères du texte :")
+        print(repr(texte[:100]))
+
+        print("\nOccurrences :")
+        print("$ :", compteur.get("$", 0))
+        print("@ :", compteur.get("@", 0))
+        print("espace :", compteur.get(" ", 0))
 
         # =============================
         # Récupération des fréquences
@@ -109,19 +123,58 @@ class AnalyseurLexical:
             correspondance[nombres_chiffre[i][0]] = nombres[i][0]
 
         for i in range(min(len(symbole), len(symbole_chiffre))):
-            correspondance[symbole_chiffre[i][0]] = symbole[i][0]
+
+            # Ne jamais remplacer l'espace
+            if symbole_chiffre[i][0] == " " or symbole[i][0] == " ":
+                continue
+
+            correspondance[symbole_chiffre[i][0]] = symbole[i][0]        
+
+        # Forcer le remplacement de $ par espace
+        # correspondance["$"] = " "
+
+        # =============================
+        # DEBUG Correspondance
+        # =============================
+
+        print("\n========== CORRESPONDANCE ==========")
+
+        print("$ existe ?", "$" in correspondance)
+        print("$ ->", repr(correspondance.get("$")))
+        print("@ ->", repr(correspondance.get("@")))
+
+        print("\nTous les symboles :")
+        for k, v in correspondance.items():
+            if not k.isalnum():
+                print(repr(k), "->", repr(v))
 
         # =============================
         # Déchiffrement
         # =============================
 
         texte_dechiffre = ""
+        print(repr(texte[:80]))
 
-        for c in texte:
+        for i, c in enumerate(texte):
+
+            # if not c.isalnum():
+            #     print(
+            #         f"Index={i} | Caractère={repr(c)} | ASCII={ord(c)}"
+            #     )
+
+            # if c == "$":
+            #     print(">>> Dollar détecté <<<")
+            #     texte_dechiffre += " "
             if c in correspondance:
                 texte_dechiffre += correspondance[c]
             else:
                 texte_dechiffre += c
+        # =============================
+        # DEBUG Résultat
+        # =============================
+
+        print("\n========== RESULTAT ==========")
+        print(repr(texte_dechiffre[:200]))
 
         cursor.close()
         self.conn.close()

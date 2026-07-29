@@ -20,9 +20,12 @@ def calculer_frequence(texte):
     # only caractères 
     caracteres = [
     c for c in texte
-    if c.islower() or c.isupper() or c.isdigit()
+    if c.islower()
+    or c.isupper()
+    or c.isdigit()
+    or c == " "
     or (not c.isalnum() and not c.isspace())
-    ]
+]
     cursor.execute("""
     SELECT current_database(),
        current_user,

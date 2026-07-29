@@ -21,9 +21,12 @@ class AnalyseurFrequence:
     
         caracteres = [
         c for c in self.texte
-        if c.islower() or c.isupper() or c.isdigit()
+        if c.islower()
+        or c.isupper()
+        or c.isdigit()
+        or c == " "
         or (not c.isalnum() and not c.isspace())
-        ]
+    ]    
         i=0
             
         cursor.execute("""
