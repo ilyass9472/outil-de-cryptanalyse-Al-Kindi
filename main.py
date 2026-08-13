@@ -12,8 +12,6 @@ banner = '''
  [1]: chiffrage cesar avec cle
  [2]: dechiffrage cesar avec cle
  [3]: dechiffrage cesar sans cle
- [4]: option 4
- [5]: option 5 
  '''
 from modules.frequence import calculer_frequence
 from modules.analyseur_frequence import AnalyseurFrequence
@@ -34,6 +32,7 @@ match choix:
         key = cle()
         
         print(chiffrement(text, key))
+
     case "2":
         print("[2]: dechiffrage cesar avec cle")
 
@@ -42,8 +41,9 @@ match choix:
         key = -1*int(cle())
 
         print(dechiffrement(text, key))
+
     case "3":
-        print("dechiffrage cesar sans cle")
+        print("[3]: dechiffrage cesar sans cle")
         
         with open("data/texte_chiffre.txt", "r", encoding="utf-8") as f:
 
@@ -59,9 +59,6 @@ match choix:
         print("Texte déchiffré (approximation)")
         print("==============================")
         print(resultat)        
-    case "4":
-        print("Option 4")
-    case "5":
-        print("Option 5")
+
     case _:
         print("Option invalide")
